@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     paddingLeft : 10,
     paddingRight : 10,
     fontWeight: '700',
-  }
+  },
 });
 
 export default Home;

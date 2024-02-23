@@ -1,41 +1,89 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
   View,
   TouchableOpacity,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import NameBox from './NameBox';
+import Player from './Player';
 
 function Board() {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const game = {
+    players: [
+      {
+        id: 123,
+        name: "player",
+        cards: [
+          {
+            value: "A",
+            color: "♥"
+          },
+          {
+            value: "10",
+            color: "♥"
+          },
+          {
+            value: "J",
+            color: "♥"
+          },
+          {
+            value: "K",
+            color: "♥"
+          },
+          {
+            value: "Q",
+            color: "♥"
+          },
+        ]
+      },
+      {
+        id: 1234,
+        name: "player2",
+        cards: [
+          {
+            value: "A",
+            color: "♥"
+          },
+          {
+            value: "J",
+            color: "♥"
+          },
+        ]
+      },
+      {
+        id: 12345,
+        name: "player3",
+        cards: [
+          {
+            value: "A",
+            color: "♥"
+          },
+          {
+            value: "10",
+            color: "♥"
+          },
+          {
+            value: "J",
+            color: "♥"
+          },
+        ]
+      },
+    ]
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Board</Text>
-      <View style={styles.buttonRow}>
-        <TouchableOpacity
-          style={[styles.button, {flexGrow: 1}]}
-          onPress={() => console.log('heelp')}
-          underlayColor='#fff'>
-          <Text style={styles.buttonText}>Help</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, {flexGrow: 2}]}
-          onPress={() => console.log('check')}
-          underlayColor='#fff'>
-          <Text style={styles.buttonText}>Check</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, {flexGrow: 2}]}
-          onPress={() => console.log('bet')}
-          underlayColor='#fff'>
-          <Text style={styles.buttonText}>Bet</Text>
-        </TouchableOpacity>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{ flex: 1, gap: 20, paddingVertical: 20 }}>
+          {game.players.map(player => <Player key={player.id} player={player} />)}
+        </View>
+        <View style={{ flex: 1, gap: 20, paddingVertical: 20 }}>
+          {game.players.map(player => <Player reversed key={player.id} player={player} />)}
+        </View>
       </View>
     </View>
   );
@@ -52,28 +100,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 40,
-    paddingVertical: 10,
-    gap: 20,
-  },
-  button: {
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    backgroundColor: '#00ADB5',
-    borderRadius: 8,
-  },
-  buttonText: {
-    color: '#222831',
-    textAlign: 'center',
-    paddingLeft : 10,
-    paddingRight : 10,
-    fontWeight: '700',
   },
   text: {
     color: '#fff',
