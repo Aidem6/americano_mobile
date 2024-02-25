@@ -14,10 +14,13 @@ function Card({ index, value, color, reversed }) {
     <View style={[styles.container, {
       left: leftPosition,
       alignItems: reversed ? 'flex-start' : 'flex-end',
-      transform: [{ rotate: reversed ? '180deg' : '0deg' }] }]}>
-      <View style={[styles.cardTextContainer, {  }]}>
-        <Text style={styles.cardText}>{value}</Text>
-        <Text style={styles.cardText}>{color}</Text>
+      transform: [{ rotate: reversed ? '180deg' : '0deg' }],
+      backgroundColor: isDarkMode ? '#222831' : '#E1E7E8',
+      borderColor: isDarkMode ? '#49DDDD' : '#222831',
+      }]}>
+      <View style={[styles.cardTextContainer]}>
+        <Text style={[styles.cardText, {color: isDarkMode ? '#49DDDD' : '#222831'}]}>{value}</Text>
+        <Text style={[styles.cardText, {color: isDarkMode ? '#49DDDD' : '#222831'}]}>{color}</Text>
       </View>
     </View>
   );
@@ -28,9 +31,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: '100%',
     aspectRatio: .625,
-    backgroundColor: '#5C6470',
     borderWidth: 0.5,
-    borderColor: '#00ADB5',
     borderRadius: 8,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
   cardText: {
     fontWeight: '700',
     fontSize: 14,
-    color: '#00ADB5',
     alignContent: 'center',
     textAlign: 'center',
     marginTop: 4,

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   useColorScheme,
   View,
   ScrollView,
@@ -21,41 +20,40 @@ function CardList({ chooseFigure }) {
         },
       ]
     },
-    ...
-    {
-      name: 'two_pair_A',
-      cards: [
-        {
-          value: "A",
-        },
-        {
-          value: "A",
-        },
-        {
-          value: "K",
-        },
-        {
-          value: "K",
-        },
-      ]
-    },
-    {
-      name: 'two_pair_A',
-      cards: [
-        {
-          value: "A",
-        },
-        {
-          value: "A",
-        },
-        {
-          value: "Q",
-        },
-        {
-          value: "Q",
-        },
-      ]
-    },
+    // {
+    //   name: 'two_pair_A',
+    //   cards: [
+    //     {
+    //       value: "A",
+    //     },
+    //     {
+    //       value: "A",
+    //     },
+    //     {
+    //       value: "K",
+    //     },
+    //     {
+    //       value: "K",
+    //     },
+    //   ]
+    // },
+    // {
+    //   name: 'two_pair_A',
+    //   cards: [
+    //     {
+    //       value: "A",
+    //     },
+    //     {
+    //       value: "A",
+    //     },
+    //     {
+    //       value: "Q",
+    //     },
+    //     {
+    //       value: "Q",
+    //     },
+    //   ]
+    // },
     {
       name: 'A',
       cards: [
@@ -113,7 +111,7 @@ function CardList({ chooseFigure }) {
           <TouchableOpacity
             onPress={() => chooseFigure(figure.cards)}
             key={figure.name}
-            style={{ flexDirection: "row", height: 100, justifyContent: 'center', backgroundColor: '#222831' }}
+            style={{ flexDirection: "row", height: 100, justifyContent: 'center', backgroundColor: isDarkMode ? '#010710' : '#fff' }}
           >
             {figure.cards.map((card) =>
               <View
@@ -143,13 +141,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-  },
-  text: {
-    color: '#fff',
-    textAlign: 'center',
-    paddingLeft : 10,
-    paddingRight : 10,
-    fontWeight: '700',
   },
   cardDeck: {
     height: 600,

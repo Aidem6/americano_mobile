@@ -35,13 +35,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  text: {
-    color: '#fff',
-    textAlign: 'center',
-    paddingLeft : 10,
-    paddingRight : 10,
-    fontWeight: '700',
-  }
 });
 
 export default Board;

@@ -10,9 +10,12 @@ function NameBox({ name }) {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {
+      backgroundColor: isDarkMode ? '#222831' : '#E1E7E8',
+      borderColor: isDarkMode ? '#49DDDD' : '#222831',
+      }]}>
       <View style={styles.nameContainer}>
-        <Text style={styles.nameText}>{name}</Text>
+        <Text style={[styles.nameText, {color: isDarkMode ? '#49DDDD' : '#222831'}]}>{name}</Text>
       </View>
     </View>
   );
@@ -22,9 +25,7 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: 30,
-    backgroundColor: '#5C6470',
     borderWidth: 0.5,
-    borderColor: '#00ADB5',
     borderRadius: 8,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
@@ -43,7 +44,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     paddingTop: 6,
-    color: '#00ADB5',
     textAlign: 'center',
     alignContent: 'center',
     alignItems: 'center',
