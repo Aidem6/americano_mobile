@@ -8,7 +8,6 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Board from '../../components/Board';
 import CardList from '../../components/CardList';
 
@@ -25,24 +24,24 @@ function Game() {
         name: "player",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♡"
           },
           {
-            value: "10",
-            color: "♥"
+            rank: "10",
+            suit: "♢"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♤"
           },
           {
-            value: "K",
-            color: "♥"
+            rank: "K",
+            suit: "♧"
           },
           {
-            value: "Q",
-            color: "♥"
+            rank: "Q",
+            suit: "♥"
           },
         ]
       },
@@ -51,12 +50,12 @@ function Game() {
         name: "player2",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♥"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♥"
           },
         ]
       },
@@ -65,16 +64,16 @@ function Game() {
         name: "player3",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♥"
           },
           {
-            value: "10",
-            color: "♥"
+            rank: "10",
+            suit: "♥"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♥"
           },
         ]
       },
@@ -83,24 +82,24 @@ function Game() {
         name: "player4",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♥"
           },
           {
-            value: "10",
-            color: "♥"
+            rank: "10",
+            suit: "♦"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♠"
           },
           {
-            value: "K",
-            color: "♥"
+            rank: "K",
+            suit: "♣"
           },
           {
-            value: "Q",
-            color: "♥"
+            rank: "Q",
+            suit: "♥"
           },
         ]
       },
@@ -109,12 +108,12 @@ function Game() {
         name: "player5",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♥"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♥"
           },
         ]
       },
@@ -123,16 +122,16 @@ function Game() {
         name: "player6",
         cards: [
           {
-            value: "A",
-            color: "♥"
+            rank: "A",
+            suit: "♥"
           },
           {
-            value: "10",
-            color: "♥"
+            rank: "10",
+            suit: "♥"
           },
           {
-            value: "J",
-            color: "♥"
+            rank: "J",
+            suit: "♥"
           },
         ]
       },

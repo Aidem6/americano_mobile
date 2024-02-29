@@ -16,50 +16,16 @@ function CardList({ chooseFigure }) {
       name: 'high_card_9',
       cards: [
         {
-          value: "J",
+          rank: "J",
         },
       ]
     },
-    // {
-    //   name: 'two_pair_A',
-    //   cards: [
-    //     {
-    //       value: "A",
-    //     },
-    //     {
-    //       value: "A",
-    //     },
-    //     {
-    //       value: "K",
-    //     },
-    //     {
-    //       value: "K",
-    //     },
-    //   ]
-    // },
-    // {
-    //   name: 'two_pair_A',
-    //   cards: [
-    //     {
-    //       value: "A",
-    //     },
-    //     {
-    //       value: "A",
-    //     },
-    //     {
-    //       value: "Q",
-    //     },
-    //     {
-    //       value: "Q",
-    //     },
-    //   ]
-    // },
     {
       name: 'A',
       cards: [
         {
-          value: "A",
-          color: "♥"
+          rank: "A",
+          suit: "♥"
         },
       ]
     },
@@ -67,12 +33,12 @@ function CardList({ chooseFigure }) {
       name: 'pairJ',
       cards: [
         {
-          value: "J",
-          color: "♥"
+          rank: "J",
+          suit: "♥"
         },
         {
-          value: "J",
-          color: "♤"
+          rank: "J",
+          suit: "♠"
         },
       ]
     },
@@ -80,12 +46,12 @@ function CardList({ chooseFigure }) {
       name: 'pairK',
       cards: [
         {
-          value: "K",
-          color: "♥"
+          rank: "K",
+          suit: "♥"
         },
         {
-          value: "K",
-          color: "♤"
+          rank: "K",
+          suit: "♠"
         },
       ]
     },
@@ -93,12 +59,12 @@ function CardList({ chooseFigure }) {
       name: 'pairA',
       cards: [
         {
-          value: "A",
-          color: "♥"
+          rank: "A",
+          suit: "♥"
         },
         {
-          value: "A",
-          color: "♤"
+          rank: "A",
+          suit: "♠"
         },
       ]
     },
