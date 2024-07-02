@@ -33,12 +33,12 @@ function CardList({ chooseFigure }) {
           <TouchableOpacity
             onPress={() => chooseFigureLocal(figure.cards, figure.name)}
             key={figure.name}
-            style={{ flexDirection: "row", height: 100, justifyContent: 'center', backgroundColor: isDarkMode ? '#010710' : '#fff' }}
+            style={{ flexDirection: "row-reverse", height: 100, justifyContent: 'center', backgroundColor: isDarkMode ? '#010710' : '#fff' }}
           >
-            {figure.cards.map((card, index) =>
+            {figure.cards.reverse().map((card, index) =>
               <View
                 key={card.rank + card.suit + index}
-                style={{ margin: 10}}
+                style={{ marginVertical: 10, marginHorizontal: -10 }}
               >
                 <Card
                   index={0}

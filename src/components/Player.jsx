@@ -14,9 +14,6 @@ function Player({ player, reversed }) {
   return (
     <View style={{ flex: 1, transform: [{ rotate: reversed ? '180deg' : '0deg' }] }}>
       <View style={styles.cardDeck}>
-        {/* <View style={{ marginLeft: 40 }}>
-          <Text style={{ color: isDarkMode ? '#fff' : '#010710' }}>{JSON.stringify(player)}</Text>
-        </View> */}
         <View style={{flexDirection: "row-reverse"}}>
           {player.cards.map((card, index) =>
             <Card

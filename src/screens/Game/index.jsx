@@ -29,6 +29,16 @@ function Game() {
     name: 'Player 2',
     cards: [],
     isYourTurn: false,
+  },{
+    id: 'playerId3',
+    name: 'Player 3',
+    cards: [],
+    isYourTurn: false,
+  },{
+    id: 'playerId4',
+    name: 'Player 4',
+    cards: [],
+    isYourTurn: false,
   }] });
   const [ whooseTurn, setWhooseTurn ] = useState(0);
   const [ logs, setLogs ] = useState('');

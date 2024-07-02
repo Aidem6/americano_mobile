@@ -13,10 +13,10 @@ function Board({ gameData }) {
     <View style={styles.container}>
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{ flex: 1, gap: 20, paddingVertical: 20 }}>
-          {gameData.players.slice(0, 3).map(player => <Player key={player.id} player={player} />)}
+          {gameData.players.slice(0, 2).reverse().map(player => <Player key={player.id} player={player} />)}
         </View>
         <View style={{ flex: 1, gap: 20, paddingVertical: 20 }}>
-          {gameData.players.slice(3).map(player => <Player reversed key={player.id} player={player} />)}
+          {gameData.players.slice(2).map(player => <Player reversed key={player.id} player={player} />)}
         </View>
       </View>
     </View>
