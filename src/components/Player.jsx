@@ -14,18 +14,21 @@ function Player({ player, reversed }) {
   return (
     <View style={{ flex: 1, transform: [{ rotate: reversed ? '180deg' : '0deg' }] }}>
       <View style={styles.cardDeck}>
+        {/* <View style={{ marginLeft: 40 }}>
+          <Text style={{ color: isDarkMode ? '#fff' : '#010710' }}>{JSON.stringify(player)}</Text>
+        </View> */}
         <View style={{flexDirection: "row-reverse"}}>
           {player.cards.map((card, index) =>
             <Card
               reversed={reversed}
-              key={card.value + card.color}
+              key={card.rank + card.suit + index}
               index={player.cards.length - 1 - index}
-              value={card.value} color={card.color}
+              value={card.rank} color={card.suit}
             />
           )}
         </View>
       </View>
-      <NameBox name={player.name} />
+      <NameBox isYourTurn={player.isYourTurn} name={player.name} />
     </View>
   );
 }

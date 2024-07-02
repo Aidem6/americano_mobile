@@ -1,97 +1,62 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   StyleSheet,
   useColorScheme,
   View,
   ScrollView,
   TouchableOpacity,
+  Text,
 } from 'react-native';
 import Card from './Card';
+import { cardList } from '../utils/dataUtils';
+// import { combinations } from '../utils/dataUtils';
 
 function CardList({ chooseFigure }) {
   const isDarkMode = useColorScheme() === 'dark';
+  const [ firstAvailableFigure, setFirstAvailableFigure ] = useState(0);
+  const scrollRef = useRef();
 
-  const cardList = [
-    {
-      name: 'high_card_9',
-      cards: [
-        {
-          rank: "J",
-        },
-      ]
-    },
-    {
-      name: 'A',
-      cards: [
-        {
-          rank: "A",
-          suit: "♥"
-        },
-      ]
-    },
-    {
-      name: 'pairJ',
-      cards: [
-        {
-          rank: "J",
-          suit: "♥"
-        },
-        {
-          rank: "J",
-          suit: "♠"
-        },
-      ]
-    },
-    {
-      name: 'pairK',
-      cards: [
-        {
-          rank: "K",
-          suit: "♥"
-        },
-        {
-          rank: "K",
-          suit: "♠"
-        },
-      ]
-    },
-    {
-      name: 'pairA',
-      cards: [
-        {
-          rank: "A",
-          suit: "♥"
-        },
-        {
-          rank: "A",
-          suit: "♠"
-        },
-      ]
-    },
-  ]
+  const chooseFigureLocal = (cards, name) => {
+    chooseFigure(cards, name);
+    const indexOfFigure = cardList.findIndex((figure) => figure.name === name);
+    setFirstAvailableFigure(indexOfFigure + 1);
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });  
+  }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView ref={scrollRef} style={styles.container}>
       <View style={styles.cardDeck}>
-        {cardList.map((figure) =>
+        {cardList.slice(firstAvailableFigure, cardList.length).map((figure) =>
           <TouchableOpacity
-            onPress={() => chooseFigure(figure.cards)}
+            onPress={() => chooseFigureLocal(figure.cards, figure.name)}
             key={figure.name}
             style={{ flexDirection: "row", height: 100, justifyContent: 'center', backgroundColor: isDarkMode ? '#010710' : '#fff' }}
           >
-            {figure.cards.map((card) =>
+            {figure.cards.map((card, index) =>
               <View
-                key={card.value + card.color}
+                key={card.rank + card.suit + index}
                 style={{ margin: 10}}
               >
                 <Card
                   index={0}
-                  value={card.value} color={card.color}
+                  value={card.rank} color={card.suit}
                 />
               </View>
             )}
           </TouchableOpacity>
         )}
+        {/* {combinations.map((combination, index) => 
+          <TouchableOpacity
+            onPress={() => chooseFigure(cards?, combination-name?)}
+            key={combination}
+            style={{ flexDirection: "row", padding: 20, justifyContent: 'center', backgroundColor: isDarkMode ? '#010710' : '#fff' }}
+          >
+            <Text style={{ color: isDarkMode ? '#fff' : '#010710', fontSize: 26 }}>{combination}</Text>
+          </TouchableOpacity>
+        )} */}
       </View>
     </ScrollView>
   );
@@ -109,7 +74,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   cardDeck: {
-    height: 600,
+    
   },
 });
 

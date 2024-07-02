@@ -6,13 +6,14 @@ import {
   View,
 } from 'react-native';
 
-function NameBox({ name }) {
+function NameBox({ isYourTurn, name }) {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <View style={[styles.container, {
       backgroundColor: isDarkMode ? '#222831' : '#E1E7E8',
       borderColor: isDarkMode ? '#49DDDD' : '#222831',
+      borderWidth: isYourTurn ? 2 : 0.5,
       }]}>
       <View style={styles.nameContainer}>
         <Text style={[styles.nameText, {color: isDarkMode ? '#49DDDD' : '#222831'}]}>{name}</Text>
